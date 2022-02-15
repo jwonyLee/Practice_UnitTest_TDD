@@ -55,5 +55,15 @@ class StrangeCalculatorTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
-    // TODO: -3을 넣으면 3을 반환한다
+    func test_음수_3을_넣으면_3을_반환한다() {
+        // given
+        let input: Int = -3
+        let expectation: Int = 3
+        
+        // when
+        let result: Int = strangeCalculator?.changeSignIfAbsoluteNumberIsOdd(to: input) ?? 0
+        
+        // result
+        XCTAssertEqual(result, expectation)
+    }
 }

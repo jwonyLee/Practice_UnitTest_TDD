@@ -89,6 +89,23 @@ class LottoMachineTests: XCTestCase {
     }
     
     // MARK: - countMatchingNumber(user:winner:)
-    // TODO: user와 winner의 숫자가 1개만 일치한 경우 1을 반환한다
+    
+    func test_user와_winner의_숫자가_1개만_일치한_경우_1을_반환한다() {
+        // given
+        let user: [Int] = [1, 5, 7, 31, 6, 9]
+        let winner: [Int] = [21, 4, 43, 1, 8, 45]
+        let expectation: Int = 1
+        
+        do {
+            // when
+            let result: Int = try lottoMachine?.countMatchingNumber(user: user, winner: winner) ?? 0
+            
+            // result
+            XCTAssertEqual(result, expectation)
+        } catch let error {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
     // TODO: user와 winner의 숫자가 로또 숫자가 아닌 경우 LottoMachineError.invalidNumbers를 던진다.
 }

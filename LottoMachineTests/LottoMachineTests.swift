@@ -106,6 +106,16 @@ class LottoMachineTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
-
-    // TODO: user와 winner의 숫자가 로또 숫자가 아닌 경우 LottoMachineError.invalidNumbers를 던진다.
+    
+    func test_user와_winner의_숫자가_로또_숫자가_아닌_경우_에러를_던진다() {
+        // given
+        let user: [Int] = [1, 5, 7, 31, 6, 9, 1]
+        let winner: [Int] = [21, 4, 43, 1, 8, 47]
+        
+        // when
+        XCTAssertThrowsError(try lottoMachine?.countMatchingNumber(user: user, winner: winner), "lottoMachine?.countMatchingNumber throws error") { error in
+            // result
+            XCTAssertEqual(error as? LottoMachineError, LottoMachineError.invalidNumbers)
+        }
+    }
 }

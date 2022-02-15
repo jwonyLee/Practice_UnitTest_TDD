@@ -76,7 +76,17 @@ class LottoMachineTests: XCTestCase {
     }
     
     // MARK: - makeRandomLottoNumbersArray()
-    // TODO: 여섯 개의 숫자를 반환한다
+    
+    func test_6개의_숫자를_반환한다() {
+        // given
+        let expectation: Int = 6
+        
+        // when
+        let result: [Int] = lottoMachine?.makeRandomLottoNumbersArray() ?? []
+        
+        // result
+        XCTAssertEqual(result.count, expectation)
+    }
     
     // MARK: - countMatchingNumber(user:winner:)
     // TODO: user와 winner의 숫자가 1개만 일치한 경우 1을 반환한다

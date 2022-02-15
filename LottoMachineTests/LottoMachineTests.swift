@@ -31,7 +31,17 @@ class LottoMachineTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
-    // TODO: 로또 숫자의 개수가 6개 이상인 경우 false를 반환한다
+    func test_로또_숫자의_개수가_6개_이상인_경우_false를_반환한다() {
+        // given
+        let input: [Int] = [1, 5, 6, 7, 9, 10, 11, 21]
+        
+        // when
+        let result: Bool = lottoMachine?.isValidLottoNumbers(of: input) ?? false
+        
+        // result
+        XCTAssertFalse(result)
+    }
+    
     // TODO: 로또 숫자의 개수가 6개가 넘으면서 중복이 있는 경우 false를 반환한다
     // TODO: 로또 숫자의 개수가 6개 이면서 중복이 있는 경우 false를 반환한다
     // TODO: 로또 숫자의 범위가 1 ~ 45 내에 없는 경우 false를 반환한다

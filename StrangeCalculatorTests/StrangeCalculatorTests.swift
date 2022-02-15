@@ -30,8 +30,7 @@ class StrangeCalculatorTests: XCTestCase {
         // result
         XCTAssertEqual(result, expectation)
     }
-    
-    // TODO: 10을 넣으면 10을 반환한다
+
     func test_10을_넣으면_10을_반환한다() {
         // given
         let input: Int = 10
@@ -44,6 +43,17 @@ class StrangeCalculatorTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
-    // TODO: 3을 넣으면 -3을 반환한다
+    func test_3을_넣으면_부호를_바꿔서_반환한다() {
+        // given
+        let input: Int = 3
+        let expectation: Int = -3
+        
+        // when
+        let result: Int = strangeCalculator?.changeSignIfAbsoluteNumberIsOdd(to: input) ?? 0
+        
+        // result
+        XCTAssertEqual(result, expectation)
+    }
+    
     // TODO: -3을 넣으면 3을 반환한다
 }

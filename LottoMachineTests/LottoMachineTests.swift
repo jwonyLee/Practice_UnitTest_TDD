@@ -64,7 +64,16 @@ class LottoMachineTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
-    // TODO: 로또 숫자의 범위가 1 ~ 45 내에 없는 경우 false를 반환한다
+    func test_로또_숫자의_범위가_1에서_45_사이에_없는_경우_false를_반환한다() {
+        // given
+        let input: [Int] = [1, 2, 65, 31, 37, 16]
+        
+        // when
+        let result: Bool = lottoMachine?.isValidLottoNumbers(of: input) ?? false
+        
+        // result
+        XCTAssertFalse(result)
+    }
     
     // MARK: - makeRandomLottoNumbersArray()
     // TODO: 여섯 개의 숫자를 반환한다
